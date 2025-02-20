@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: background 0.3s;
+            padding: 15px 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover {
+            background: #ff3f6c;
+            color: white;
+        }
+        
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 8px 15px;
+            width: 300px;
+        }
+        
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+        }
+        
+        /* Icons */
+        .icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .icon-item i {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .icon-item:hover i {
+            transform: scale(1.1);
+        }
+        
+        /* Banner */
+        .banner img {
+            width: 100%;
+            margin-top: 80px;
+        }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .grid img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .grid img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* Dark Mode */
+        .dark-mode {
+            background: black;
+            color: white;
+        }
+        
+        .dark-mode header {
+            background: black;
+        }
+        
+        .dark-mode .nav-links a {
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .icons {
+                margin-top: 10px;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            padding-top: 80px;
+        }
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .footer {
+            background: #f8f8f8;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            padding-bottom: 20px;
+        }
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin: 5px 0;
+        }
+        .footer-column ul li a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #ff3f6c;
+        }
+        .copyright {
+            font-size: 14px;
+            color: gray;
+        }
+        .dark-mode {
+            background: black;
+            color: white;
+        }
+        .dark-mode header {
+            background: black;
+        }
+        .dark-mode .footer {
+            background: #222;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            #nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            #nav-menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="navbar">
+        <nav class="container flex space-between">
+            <div class="left flex items-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6mUEIoq3UUDmgCEHRvIn72bcQ63JIZ8eH1A&s" alt="Myntra Logo">
+                <ul class="nav-links">
+                    <li class="dropdown"><a href="#">Men</a></li>
+                    <li class="dropdown"><a href="#">Women</a></li>
+                    <li class="dropdown"><a href="#">Kids</a></li>
+                    <li class="dropdown"><a href="#">Home & Living</a></li>
+                    <li><a href="#">Beauty</a></li>
+                </ul>
+            </div>
+            <div class="search-bar flex items-center">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for products, brands and more">
+            </div>
+            <div class="icons flex">
+                <div class="icon-item"><i class="fas fa-user"></i><span>Profile</span></div>
+                <div class="icon-item"><i class="fas fa-heart"></i><span>Wishlist</span></div>
+                <div class="icon-item"><i class="fas fa-shopping-bag"></i><span>Cart</span></div>
+                <button id="dark-mode-toggle">🌙</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="banner">
+            <img src="home.png" alt="Banner">
+        </section>
+        <section class="container grid">
+            <img src="home2.png" alt="Category Image">
+            <img src="home3.png" alt="Category Image">
+            <img src="home4.png" alt="Category Image">
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Kids</a></li>
+                    <li><a href="#">Home & Living</a></li>
+                    <li><a href="#">Beauty</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                © 2025 Myntra Clone. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Dark Mode Toggle
+        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Responsive Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Search Bar Focus Effect
+        document.getElementById('search-input').addEventListener('focus', function() {
+            this.style.border = '2px solid #ff3f6c';
+        });
+        document.getElementById('search-input').addEventListener('blur', function() {
+            this.style.border = '1px solid #ccc';
+        });
+    </script>
+</body>
+</html>
